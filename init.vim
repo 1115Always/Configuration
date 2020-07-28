@@ -17,4 +17,10 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'jiangmiao/auto-pairs'
 Plug 'othree/xml.vim'
+Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()

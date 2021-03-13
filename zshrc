@@ -19,7 +19,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-alias vi='nvim'
 alias ll='ls -l --color=auto'
 
 #fish like auto-suggestions

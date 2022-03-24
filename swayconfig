@@ -4,8 +4,6 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:Monaco 11
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -22,6 +20,8 @@ set $term foot
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
+font pango:Monaco 12
+
 set $refresh_i3status killall -SIGUSR1 i3status-rs
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && $refresh_i3status
@@ -31,8 +31,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * mode 2560x1440@60Hz
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill resolution 2560x1440@60Hz
 #
 # Example configuration:
 #
@@ -73,6 +72,8 @@ output * mode 2560x1440@60Hz
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    bindsym $mod+c exec google-chrome-stable
 
     # Kill focused window
     bindsym $mod+q kill
@@ -116,8 +117,6 @@ output * mode 2560x1440@60Hz
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-
-	bindsym $mod+c exec google-chrome-stable
 #
 # Workspaces:
 #
@@ -218,11 +217,11 @@ bar {
     # The default just shows the current date and time.
     status_command i3status-rs
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    #colors {
+    #    statusline #ffffff
+    #    background #323232
+    #    inactive_workspace #32323200 #32323200 #5c5c5c
+    #}
 }
 
 default_border none
@@ -230,6 +229,6 @@ default_floating_border none
 
 assign [class="netease-cloud-music"] 9
 
-include /etc/sway/config.d/*
-
 exec --no-startup-id fcitx5 -d
+
+include /etc/sway/config.d/*
